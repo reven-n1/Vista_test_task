@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>403</width>
-    <height>350</height>
+    <height>334</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -23,11 +23,11 @@
    <string notr="true"/>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="ok_but">
+   <widget class="QPushButton" name="save_but">
     <property name="geometry">
      <rect>
       <x>40</x>
-      <y>280</y>
+      <y>220</y>
       <width>151</width>
       <height>40</height>
      </rect>
@@ -36,20 +36,20 @@
      <string notr="true">background-color: seagreen</string>
     </property>
     <property name="text">
-     <string>Ок</string>
+     <string>Сохранить</string>
     </property>
    </widget>
    <widget class="QPushButton" name="cancel_but">
     <property name="geometry">
      <rect>
       <x>210</x>
-      <y>280</y>
+      <y>220</y>
       <width>151</width>
       <height>40</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: darkred</string>
+     <string notr="true"/>
     </property>
     <property name="text">
      <string>Отмена</string>
@@ -77,38 +77,10 @@
      <bool>true</bool>
     </property>
     <property name="placeholderText">
-     <string>Имя пользователя</string>
+     <string>ФИО</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="confirm_pass_field">
-    <property name="geometry">
-     <rect>
-      <x>40</x>
-      <y>160</y>
-      <width>321</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="inputMask">
-     <string/>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="maxLength">
-     <number>32767</number>
-    </property>
-    <property name="frame">
-     <bool>true</bool>
-    </property>
-    <property name="echoMode">
-     <enum>QLineEdit::Password</enum>
-    </property>
-    <property name="placeholderText">
-     <string>Повторите пароль</string>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="password_field">
+   <widget class="QLineEdit" name="phone_field">
     <property name="geometry">
      <rect>
       <x>40</x>
@@ -130,17 +102,17 @@
      <bool>true</bool>
     </property>
     <property name="echoMode">
-     <enum>QLineEdit::Password</enum>
+     <enum>QLineEdit::Normal</enum>
     </property>
     <property name="placeholderText">
-     <string>Пароль</string>
+     <string>Телефон</string>
     </property>
    </widget>
    <widget class="QDateEdit" name="date_field">
     <property name="geometry">
      <rect>
       <x>40</x>
-      <y>220</y>
+      <y>160</y>
       <width>320</width>
       <height>40</height>
      </rect>
@@ -162,6 +134,22 @@
     </property>
     <property name="calendarPopup">
      <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="delete_contact_but">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>270</y>
+      <width>160</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: darkred</string>
+    </property>
+    <property name="text">
+     <string>Удалить</string>
     </property>
    </widget>
   </widget>

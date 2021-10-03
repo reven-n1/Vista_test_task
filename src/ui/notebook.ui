@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>859</width>
+    <height>677</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string/>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QHBoxLayout" name="horizontalLayout_3">
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <item>
+         <widget class="QLabel" name="add_contact_click">
+          <property name="font">
+           <font>
+            <underline>true</underline>
+           </font>
+          </property>
+          <property name="text">
+           <string>Добавить контакт</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QLabel" name="sign_out_event">
+          <property name="font">
+           <font>
+            <underline>true</underline>
+           </font>
+          </property>
+          <property name="text">
+           <string>Выйти</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <property name="margin">
+         <number>10</number>
+        </property>
+        <item>
+         <widget class="QListWidget" name="listWidget">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+            <horstretch>1</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <item>
+           <property name="text">
+            <string>АБ</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>ВГ</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>ДЕ</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>ЖЗИЙ</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>КЛ</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>МН</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>ОП</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>РС</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>ТУ</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>ФХ</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>ЦЧШЩ</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>ЪЫЬЭ</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>ЮЯ</string>
+           </property>
+          </item>
+         </widget>
+        </item>
+        <item>
+         <widget class="QTableWidget" name="tableWidget">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+            <horstretch>11</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="alternatingRowColors">
+           <bool>false</bool>
+          </property>
+          <property name="columnCount">
+           <number>3</number>
+          </property>
+          <column>
+           <property name="text">
+            <string>Имя</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Телефон</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Дата рождения</string>
+           </property>
+          </column>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

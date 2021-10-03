@@ -1,8 +1,7 @@
 import mysql.connector as connector
-from json import load
+
 
 class Database(object):
-
     def __init__(self):
         try:
             self.__db_connection = connector.connect(
@@ -16,56 +15,52 @@ class Database(object):
 
             self.__create_tables()
 
-        except FileNotFoundError:
-            pass
 
         except Exception as e:
             print(e)          
         
 
     def __create_tables(self):
+        # type: () -> None
         self.__cursor.execute("""
         CREATE TABLE IF NOT EXISTS 
-        phonebook.users (
-            id int(10) unsigned NOT NULL AUTO_INCREMENT,
-            email varchar(255) NOT NULL,
-            password varchar(255) NOT NULL,
-            births_date date NOT NULL,
-            PRIMARY KEY (id),
-            UNIQUE KEY unique_users (email)
-            ) ENGINE = InnoDB AUTO_INCREMENT = 13 DEFAULT CHARSET = utf8mb4;
+        notebook.contacts(
+            id int NOT NULL AUTO_INCREMENT, 
+            user_id int NOT NULL ,
+            full_name varchar(256) NOT NULL, 
+            phone varchar(256) NOT NULL, 
+            births_date date NOT NULL, 
+        PRIMARY KEY (id), 
+        UNIQUE KEY unique_record (user_id, full_name, phone, births_date), 
+        CONSTRAINT contacts_to_user FOREIGN KEY (user_id) 
+        REFERENCES users (id) ON DELETE CASCADE ON UPDATE CASCADE);
                             """)
 
         
         self.__cursor.execute("""
         CREATE TABLE IF NOT EXISTS 
-        phonebook.contacts (
-            id int(10) unsigned NOT NULL AUTO_INCREMENT,
-            user_id int(10) unsigned NOT NULL,
-            full_name varchar(255) NOT NULL,
-            phone varchar(255) NOT NULL,
-            births_date date NOT NULL,
-            PRIMARY KEY (id),
-            UNIQUE KEY unique_records (user_id, full_name, phone, births_date),
-            CONSTRAINT contacts_to_users FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE ON
-            UPDATE
-                CASCADE
-            ) ENGINE = InnoDB AUTO_INCREMENT = 19 DEFAULT CHARSET = utf8mb4;
+        notebook.users(
+            id int NOT NULL AUTO_INCREMENT, 
+            email varchar(256) NOT NULL, 
+            password varchar(256) NOT NULL, 
+            births_date date NOT NULL, 
+        PRIMARY KEY (id), 
+        UNIQUE KEY unique_users (email));
                             """)
 
         self.__db_connection.commit()
     
-
-    
-    
-    def sign_in(self, request):
-        # type: (str) -> None
-        pass
-
     
     def sign_up(self, email, password, births_date):
-        # type: (str) -> None
-        pass
+        # type: (str, str, str) -> None
+        self.__cursor.execute("INSERT INTO notebook.users (email, password, births_date) VALUES('{em}', '{pas}', '{bth}')".format(em = email, pas = password, bth = births_date))
+        self.__commit()
+
+
+    def set_new_pass(self, new_password, email):
+        # type: (str, str) -> None
+        self.__cursor.execute("UPDATE notebook.users SET password = '{0}' WHERE email = '{1}'".format(new_password, email))
+        self.__commit()
 
 
     def get_all_contacts(self, request):
@@ -93,7 +88,15 @@ class Database(object):
         pass
 
 
+
+    def fetch_user(self, email):
+        # type: (str) -> list
+        self.__cursor.execute("SELECT email, password FROM notebook.users WHERE email = '{email}'".format(email=email))
+        return self.__cursor.fetchone()
+
+
     def __commit(self):
+        # type: () -> None
         self.__db_connection.commit()
 
     
