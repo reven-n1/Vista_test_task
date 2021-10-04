@@ -28,7 +28,7 @@
     CREATE DATABASE 'notebook';
     GRANT ALL PRIVILEGES ON notebook.* TO 'user'@'localhost';
 
-![db](database/pic/db.jpg)
+![db](src/database/pic/db.png)
 
 
 
