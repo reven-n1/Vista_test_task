@@ -22,6 +22,7 @@
 
 
 #### MariaDB
+    (connect to db with admin rights)
     sudo apt install python-mysqldb mariadb-server
 
     CREATE USER 'user'@'localhost' IDENTIFIED BY 'pass';
