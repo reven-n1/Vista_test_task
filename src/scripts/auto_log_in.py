@@ -1,3 +1,5 @@
+#! /usr/bin/env python
+# -*- coding: utf-8 -*-
 from src.scripts.register_validator import user_sign_in_validation
 from src.scripts.login_form import login_form
 from PyQt4.QtCore import QSettings

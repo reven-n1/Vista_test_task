@@ -30,11 +30,3 @@
     GRANT ALL PRIVILEGES ON notebook.* TO 'user'@'localhost';
 
 ![db](src/picture/db.png)
-
-
-
-
-
-
-
-Oops - email не должен содержать кириллицу

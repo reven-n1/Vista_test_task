@@ -1,3 +1,4 @@
+#! /usr/bin/env python
 # -*- coding: utf-8 -*-
 from src.scripts.validation_exceptions import NoNearestBirth
 import mysql.connector as connector
@@ -54,15 +55,13 @@ class Database(object):
     
     def sign_up(self, email, password, births_date):
         # type: (str, str, str) -> None
-        eml = u"{0}".format(email).encode('utf-8')
-        self.__cursor.execute("INSERT INTO notebook.users (email, password, births_date) VALUES('{em}', '{pas}', '{bth}')".format(em = eml, pas = password, bth = births_date))
+        self.__cursor.execute("INSERT INTO notebook.users (email, password, births_date) VALUES('{em}', '{pas}', '{bth}')".format(em = email, pas = password, bth = births_date))
         self.__commit()
 
 
     def set_new_pass(self, new_password, email):
         # type: (str, str) -> None
-        eml = u"{0}".format(eml).encode('utf-8')
-        self.__cursor.execute("UPDATE notebook.users SET password = '{0}' WHERE email = '{1}'".format(new_password, eml))
+        self.__cursor.execute("UPDATE notebook.users SET password = '{0}' WHERE email = '{1}'".format(new_password, email))
         self.__commit()
 
 
@@ -70,7 +69,7 @@ class Database(object):
         # type: (str) -> list
         eml = u"{0}".format(email).encode('utf-8')
         self.__cursor.execute("SELECT full_name, phone, contacts.births_date FROM notebook.contacts join \
-        notebook.users on contacts.user_id = users.id WHERE users.email = '{0}'".format(eml))
+        notebook.users on contacts.user_id = users.id WHERE users.email = '{0}'".format(email))
         return self.__cursor.fetchall()
 
     
@@ -102,16 +101,14 @@ class Database(object):
 
     def edit_contact(self, new_name, new_phone, new_births_date, rec_id):
         # type: (str, str, str, str) -> None
-        n = u"{0}".format(new_name).encode('utf-8')
         self.__cursor.execute("UPDATE notebook.contacts SET full_name = '{0}' , phone = '{1}' , births_date = '{2}' \
-        WHERE id = '{3}'".format(n, str(new_phone), new_births_date, int(rec_id)))
+        WHERE id = '{3}'".format(new_name, str(new_phone), new_births_date, int(rec_id)))
         self.__commit()
     
 
     def get_record_id(self, name, phone, births_date):
         # type: (str, str, str) -> list
-        n = u"{0}".format(name).encode('utf-8')
-        self.__cursor.execute("SELECT id FROM notebook.contacts WHERE full_name = '{0}' AND phone = '{1}' AND births_date = '{2}'".format(n, str(phone), births_date))
+        self.__cursor.execute("SELECT id FROM notebook.contacts WHERE full_name = '{0}' AND phone = '{1}' AND births_date = '{2}'".format(name, str(phone), births_date))
         return self.__cursor.fetchone()[0]
 
 
@@ -123,8 +120,7 @@ class Database(object):
 
     def fetch_user(self, email):
         # type: (str) -> tuple
-        eml = u"{0}".format(email).encode('utf-8')
-        self.__cursor.execute("SELECT email, password FROM notebook.users WHERE email = '{email}'".format(email=eml))
+        self.__cursor.execute("SELECT email, password FROM notebook.users WHERE email = '{email}'".format(email=email))
         return self.__cursor.fetchone()
 
     
