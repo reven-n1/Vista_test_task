@@ -22,9 +22,9 @@
 
 
 #### MariaDB
-    (connect to db with admin rights)
     sudo apt install python-mysqldb mariadb-server
-
+    
+    (connect to db with admin rights)
     CREATE USER 'user'@'localhost' IDENTIFIED BY 'pass';
     CREATE DATABASE 'notebook';
     GRANT ALL PRIVILEGES ON notebook.* TO 'user'@'localhost';
