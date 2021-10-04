@@ -12,6 +12,7 @@ class registration_form(QtGui.QMainWindow):
         super(registration_form, self).__init__()
         uic.loadUi("src/ui/sign_up.ui", self)
         self.setFixedSize(self.width(), self.height())
+        self.setWindowTitle(u"записная книжка")
 
         self.ok_but.clicked.connect(self.ok_click)
         self.cancel_but.clicked.connect(self.cancel_click)

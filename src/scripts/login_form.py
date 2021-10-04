@@ -17,6 +17,7 @@ class login_form(QtGui.QMainWindow):
         super(login_form, self).__init__()
         uic.loadUi("src/ui/login_window.ui", self)
         self.setFixedSize(self.width(), self.height())
+        self.setWindowTitle(u"вход/регистрация")
 
         self.sign_in_but.clicked.connect(self.sign_in_click)
         self.cancel_but.clicked.connect(self.cancel_click)

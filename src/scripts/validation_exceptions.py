@@ -16,3 +16,7 @@ class UserNotFound(Exception):
 
 class WrongPassword(Exception):
     pass
+
+
+class NoNearestBirth(Exception):
+    pass

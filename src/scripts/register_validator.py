@@ -31,3 +31,9 @@ def change_pass_validator(email):
     db_data = db.fetch_user(email)
     if not db_data:
         raise UserNotFound
+
+
+def note_add_validator(full_name, births_date, phone, email):
+    db_data = db.contact_exists(email, full_name, births_date, phone)
+    if db_data:
+        raise UserAlreadyExists

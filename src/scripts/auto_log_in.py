@@ -11,7 +11,7 @@ def log_in():
     settings = QSettings("Notebook", "app")
     
     if settings.value("auto_log_in").toBool(): 
-        notebook_form = notebook(settings.value("email").toString())
+        notebook_form = notebook(u"{0}".format(settings.value("email").toString()))
         notebook_form.show()
     else:
         window = login_form()

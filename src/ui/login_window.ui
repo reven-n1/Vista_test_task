@@ -107,7 +107,7 @@
      <string/>
     </property>
     <property name="placeholderText">
-     <string>Имя пользователя</string>
+     <string>Логин (email)</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="pass_input">

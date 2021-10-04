@@ -14,6 +14,7 @@ class pass_recovery_form(QtGui.QMainWindow):
         super(pass_recovery_form, self).__init__()
         uic.loadUi("src/ui/set_new_pass.ui", self)
         self.setFixedSize(self.width(), self.height())
+        self.setWindowTitle(u"Восстановление пароля")
 
         self.ok_but.clicked.connect(self.set_new_pass_click)
         self.cancel_but.clicked.connect(self.cancel_click)

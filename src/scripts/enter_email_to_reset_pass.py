@@ -13,6 +13,7 @@ class enter_email_to_reset_pass(QtGui.QMainWindow):
         super(enter_email_to_reset_pass, self).__init__()
         uic.loadUi("src/ui/reset_password.ui", self)
         self.setFixedSize(self.width(), self.height())
+        self.setWindowTitle("")
 
         self.reset_pus_but.clicked.connect(self.cont_pass_reset)
         self.cancel_but.clicked.connect(self.cancel_click)     
