@@ -36,7 +36,7 @@ class notebook(QtGui.QMainWindow):
         try:
             birth_list = ""
             for item in self.db.get_nearest_birthds(self.email):
-                birth_list = birth_list + u"{0}   т.-{1}   {2}\n".format(item[0], item[1], item[2])
+                birth_list = birth_list + u"{0}\tт.-{1}\t{2}\n".format(item[0], item[1], item[2])
             show_notification(self, u"Ближайшие дни рождения", birth_list)
         except mysql.connector.errors.InterfaceError:
             pass

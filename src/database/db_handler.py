@@ -74,6 +74,7 @@ class Database(object):
 
     
     def get_contacts_count(self, email):
+        # type: (str) -> int
         self.__cursor.execute("SELECT COUNT(*) FROM notebook.contacts join \
         notebook.users on contacts.user_id = users.id WHERE users.email = '{0}'".format(email))
         res = int(self.__cursor.fetchone()[0])
@@ -84,7 +85,7 @@ class Database(object):
         # type: (str) -> list
         self.__cursor.execute("SELECT full_name, phone, contacts.births_date FROM notebook.contacts join \
         notebook.users on contacts.user_id = users.id WHERE users.email = '{0}' \
-        AND contacts.births_date <= DATE(NOW()) + INTERVAL 7 DAY AND contacts.births_date >= DATE(NOW())".format(email))
+        AND DayOfYear(contacts.births_date) BETWEEN DayOfYear(NOW()) and DayOfYear(NOW() + INTERVAL 7 DAY)".format(email))
         res = self.__cursor.fetchall()
         if res:
             return res
@@ -93,7 +94,7 @@ class Database(object):
 
 
     def add_contact(self, name, phone, births_date, email):
-        # type: (str) -> None
+        # type: (str, str, str, str) -> None
         self.__cursor.execute(u"INSERT INTO notebook.contacts (user_id, full_name, phone ,births_date) \
              VALUES((SELECT id FROM notebook.users WHERE email = '{0}'), '{1}', '{2}', '{3}')".format(email, name, phone, births_date))
         self.__commit()
