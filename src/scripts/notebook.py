@@ -88,6 +88,7 @@ def update_contact_list(self):
         self.tableWidget.setRowCount(self.db.get_contacts_count(self.email))
         try:
             contacts = self.db.get_all_contacts(self.email)
+            contacts.sort(key= lambda x: x[0])
             for count, person in enumerate(contacts):
                 self.tableWidget.setItem(count, 0, QTableWidgetItem(person[0]))
                 self.tableWidget.setItem(count, 1, QTableWidgetItem(person[1]))

@@ -1,4 +1,39 @@
-create table contacts(id int NOT NULL AUTO_INCREMENT, user_id int NOT NULL ,full_name varchar(256) NOT NULL, phone varchar(256) NOT NULL, births_date date NOT NULL, PRIMARY KEY (id), UNIQUE KEY unique_record (user_id, full_name, phone, births_date), CONSTRAINT contacts_to_user FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE ON UPDATE CASCADE);
+# CRUD app - Notebook
+### build on python2.7 + pyqt4
+    test project
 
-create table users(id int NOT NULL AUTO_INCREMENT, email varchar(256) NOT NULL, password varchar(256) NOT NULL, births_date date NOT NULL, PRIMARY KEY (id), UNIQUE KEY unique_users (email));
+## Installation and configuration(Linux)
+
+#### Python
+    sudo apt install python2
+
+
+
+#### PyQt4
+    sudo add-apt-repository ppa:rock-core/qt4
+    sudo apt-get update
+
+
+    wget http://archive.ubuntu.com/ubuntu/pool/universe/q/qt-assistant-compat/libqtassistantclient4_4.6.3-7build1_amd64.deb
+    wget http://archive.ubuntu.com/ubuntu/pool/universe/p/python-qt4/python-qt4_4.12.1+dfsg-2_amd64.deb
+    wget http://archive.ubuntu.com/ubuntu/pool/universe/p/python-pyaudio/python-pyaudio_0.2.11-1build2_amd64.deb
+
+    sudo apt install ./libqtassistantclient4_4.6.3-7build1_amd64.deb ./python-pyaudio_0.2.11-1build2_amd64.deb ./python-qt4_4.12.1+dfsg-2_amd64.deb
+
+
+#### MariaDB
+    sudo apt install python-mysqldb mariadb-server
+
+    CREATE USER 'user'@'localhost' IDENTIFIED BY 'pass';
+    CREATE DATABASE 'notebook';
+    GRANT ALL PRIVILEGES ON notebook.* TO 'user'@'localhost';
+
+![db](database/pic/db.jpg)
+
+
+
+
+
+
+
 
