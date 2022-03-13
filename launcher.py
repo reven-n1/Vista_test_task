@@ -2,7 +2,6 @@ import sys
 reload(sys)
 sys.setdefaultencoding('utf8')
 from src.scripts.auto_log_in import log_in
-from PyQt4 import QtGui, uic
 import sys
 
 

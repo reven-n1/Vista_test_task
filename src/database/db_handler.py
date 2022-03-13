@@ -67,7 +67,6 @@ class Database(object):
 
     def get_all_contacts(self, email):
         # type: (str) -> list
-        eml = u"{0}".format(email).encode('utf-8')
         self.__cursor.execute("SELECT full_name, phone, contacts.births_date FROM notebook.contacts join \
         notebook.users on contacts.user_id = users.id WHERE users.email = '{0}'".format(email))
         return self.__cursor.fetchall()
@@ -75,7 +74,7 @@ class Database(object):
     
     def get_contacts_count(self, email):
         # type: (str) -> int
-        self.__cursor.execute("SELECT COUNT(*) FROM notebook.contacts join \
+        self.__cursor.execute("SELECT COUNT(users.id) FROM notebook.contacts join \
         notebook.users on contacts.user_id = users.id WHERE users.email = '{0}'".format(email))
         res = int(self.__cursor.fetchone()[0])
         return 0 if not res else res

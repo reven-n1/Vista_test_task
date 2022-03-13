@@ -7,7 +7,6 @@ from src.database.db_handler import db
 from PyQt4.QtCore import QSettings
 import mysql.connector.errors
 from PyQt4 import QtGui, uic
-from PyQt4 import QtCore
 import login_form
 
 
