@@ -29,7 +29,7 @@ class registration_form(QtGui.QMainWindow):
         password_conf = self.confirm_pass_field.text()
         births_date = self.date_field.date().toString("yyyy-M-d")
 
-        # можно было бы написать нормальный qValidator...
+
         try:
             fields_filling_validator(name, password, password_conf, births_date)
             pass_validator(password, password_conf)
